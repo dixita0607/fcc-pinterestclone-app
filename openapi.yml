@@ -146,6 +146,15 @@ paths:
                 $ref: '#/components/schemas/User'
       tags:
         - Users
+  /logout:
+    get:
+      summary: Logout user
+      operationId: logout
+      responses:
+        302:
+          description: Redirect to home
+      tags:
+        - Auth
 components:
   schemas:
     Image:

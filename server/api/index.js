@@ -7,6 +7,11 @@ router.get('/auth/twitter/callback', passport.authenticate('twitter', {
   failureRedirect: '/'
 }));
 
+router.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+});
+
 router.use('/images', require('./images'));
 router.use('/users', require('./users'));
 
