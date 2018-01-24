@@ -1,0 +1,191 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: FCC Pinterestclone App
+  license:
+    name: MIT
+paths:
+  /images:
+    get:
+      summary: Get all images
+      operationId: getImages
+      responses:
+        200:
+          description: Returns all images
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Images'
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - Images
+    post:
+      summary: Add new image (Only authenticated user can add images)
+      operationId: addImage
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddImage'
+      responses:
+        200:
+          description: Response for successfully added image
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - Images
+  /images/{imageId}:
+    put:
+      summary: Like image
+      operationId: likeImage
+      parameters:
+        - name: imageId
+          in: path
+          description: Id of an image to be liked
+      responses:
+        200:
+          description: Response for successful like
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - Images
+    delete:
+      summary: Delete an image
+      operationId: deleteImage
+      parameters:
+        - name: imageId
+          in: path
+          description: Id of an image to be deleted
+      responses:
+        200:
+          description: Response for successful deltion
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - Images
+  /users/{username}/images:
+    get:
+      summary: Get user's images
+      operationId: getUserImages
+      parameters:
+        - name: username
+          in: path
+          description: Username
+      responses:
+        200:
+          description: Returns user's all images
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Images'
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - Users
+  /users/user:
+    get:
+      summary: Get user
+      operationId: getUser
+      responses:
+        200:
+          description: Return got user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+        - Users
+components:
+  schemas:
+    Image:
+      type: object
+      properties:
+        _id:
+          type: string
+          required: true
+        url:
+          type: string
+          required: true
+        description:
+          type: string
+        likes:
+          type: number
+          required: true
+        author:
+          type: string
+          required: true
+    AddImage:
+      type: object
+      properties:
+        url:
+          type: string
+          required: true
+        description:
+          type: string
+    Images:
+      type: array
+      items:
+        $ref: '#/components/schemas/Image'
+    User:
+      type: object
+      items:
+        username:
+          type: string
+          required: true
+        profilePicture:
+          type: string
+    Success:
+      type: object
+    Error:
+      type: object

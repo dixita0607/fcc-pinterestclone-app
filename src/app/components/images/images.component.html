@@ -1,0 +1,17 @@
+<div *ngIf="images && images.length > 0" #grid>
+  <div *ngFor="let image of images; let i = index" class="grid-item">
+    <fcc-image-with-fallback [imageUrl]="image.url"></fcc-image-with-fallback>
+    <a [routerLink]="['/', image.author, 'images']">
+      {{image.author}}{{image.author === (!!authService.user && authService.user.username) ? " (You)" : ''}}
+    </a>
+    Likes - {{image.likes}}
+    Description - {{image.description || '--'}}
+    Liked by you - {{image.liked}}
+    <button *ngIf="showDelete && (authService.user && authService.user.username) === image.author" type="button"
+            (click)="deleteImage(image._id, i)">
+      Delete
+    </button>
+    <button type="button" (click)="likeImage(image._id, i)" [disabled]="!authService.user">Like</button>
+  </div>
+</div>
+<div *ngIf="images && images.length <= 0">No images found.</div>

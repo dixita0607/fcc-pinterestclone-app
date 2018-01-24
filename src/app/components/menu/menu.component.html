@@ -1,0 +1,14 @@
+<div>
+  <a href="/api/auth/twitter" *ngIf="authService.initialized && !authService.user">
+    <button type="button">Login with Twitter</button>
+  </a>
+  <a [routerLink]="['home']" *ngIf="authService.user">
+    <button type="button">Home</button>
+  </a>
+  <a [routerLink]="[authService.user.username, 'images']" *ngIf="authService.user">
+    <button type="button">My Images</button>
+  </a>
+  <a [routerLink]="[authService.user.username, 'addImage']" *ngIf="authService.user">
+    <button type="button">Add Image</button>
+  </a>
+</div>
