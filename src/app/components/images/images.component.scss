@@ -30,12 +30,21 @@
             color: $darkPrimaryColor;
             font-weight: bold;
             font-size: 18px;
-            cursor: pointer;
-            &:hover {
-              color: $secondaryColor;
+          }
+          &:disabled {
+            i {
+              cursor: not-allowed;
             }
-            &.liked {
-              color: $secondaryColor;
+          }
+          &:not(:disabled) {
+            i {
+              &:hover {
+                cursor: pointer;
+                color: $secondaryColor;
+              }
+              &.liked {
+                color: $secondaryColor;
+              }
             }
           }
         }
