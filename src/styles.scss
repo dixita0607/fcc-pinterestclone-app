@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./variables";
+
+@font-face {
+  font-family: Righteous;
+  src: url('./assets/fonts/Righteous.ttf');
+}
+
+@font-face {
+  font-family: Overpass;
+  src: url('./assets/fonts/Overpass.ttf');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: $darkPrimaryColor;
+  font-family: Overpass, sans-serif;
+  a {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+

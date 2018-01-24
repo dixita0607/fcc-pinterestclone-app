@@ -1,12 +1,12 @@
-<div>
-  <fcc-image-with-fallback [imageUrl]="image.value" *ngIf="image.value"></fcc-image-with-fallback>
+<div class="add-image">
+  <fcc-image-with-fallback [imageUrl]="image.value" [imageWidth]="288" *ngIf="image.value"></fcc-image-with-fallback>
   <form [formGroup]="form" (ngSubmit)="addImage()">
-    <div>
-      <div>Image Url</div>
+    <div class="control">
+      <div class="label">Image Url</div>
       <input type="text" formControlName="url" #image>
     </div>
-    <div>
-      <div>Description</div>
+    <div class="control">
+      <div class="label">Description</div>
       <input type="text" formControlName="description">
     </div>
     <button type="submit" [disabled]="form.pristine">Add Image</button>

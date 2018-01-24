@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   getImages() {
     this.imageService.getImages().subscribe(
       (images: Image[]) => this.images = images,
-      error => this.toastService.showToast('Could not get images', true)
+      error => this.toastService.showToast('Could not get images')
     )
   }
 

@@ -42,8 +42,8 @@ export class AddImageComponent implements OnInit {
         this.router.navigate([this.authService.user.username, 'images']);
       },
       error => {
-        if (error.status === 400) this.toastService.showToast('Already Added.', true);
-        else this.toastService.showToast('Could not add Image', true);
+        if (error.status === 400) this.toastService.showToast('Already Added.');
+        else this.toastService.showToast('Could not add Image');
       }
     )
   }

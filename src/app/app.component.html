@@ -1,4 +1,10 @@
-<div>{{title}}</div>
-<fcc-menu></fcc-menu>
-<router-outlet></router-outlet>
-<fcc-toast></fcc-toast>
+<div class="app">
+  <div class="app-header">
+    <a [routerLink]="['/home']">
+      <div class="app-title">{{title}}</div>
+    </a>
+    <fcc-menu></fcc-menu>
+  </div>
+  <router-outlet></router-outlet>
+  <fcc-toast></fcc-toast>
+</div>

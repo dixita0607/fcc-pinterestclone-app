@@ -27,7 +27,7 @@ export class UserImagesComponent implements OnInit {
   getUserImages() {
     this.userService.getUserImages(this.activatedRoute.snapshot.params.username).subscribe(
       (images: Image[]) => this.images = images,
-      error => this.toastService.showToast('Could not fetch images', true)
+      error => this.toastService.showToast('Could not fetch images')
     )
   }
 

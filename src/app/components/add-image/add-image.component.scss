@@ -1,0 +1,49 @@
+@import "../../../variables";
+
+.add-image {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  background-color: $primaryTextColor;
+  color: $darkPrimaryColor;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 40px auto;
+  form {
+    .control {
+      .label {
+        font-size: 13px;
+      }
+      input {
+        font-size: 16px;
+        width: 100%;
+        padding: 2px 4px;
+        outline: none;
+        border: 1px solid $darkPrimaryColor;
+        margin: 4px 0;
+        border-radius: 4px;
+        line-height: 22px;
+        &:focus {
+          border-color: $accentColor;
+        }
+      }
+    }
+    button {
+      cursor: pointer;
+      font-size: 14px;
+      padding: 4px 6px;
+      width: 100%;
+      margin-top: 8px;
+      font-weight: bold;
+      outline: none;
+      border: 1px solid $divideColor;
+      background-color: $accentColor;
+      color: $primaryTextColor;
+      &:not(:disabled):hover, &:focus {
+        background-color: transparent;
+        color: $darkPrimaryColor;
+      }
+    }
+  }
+
+}

@@ -5,7 +5,6 @@ export class ToastService {
 
   message: string;
   showing: boolean = false;
-  isError: boolean;
   private timer: number;
 
   constructor() {
@@ -13,7 +12,6 @@ export class ToastService {
 
   showToast(message: string, isError: boolean = false) {
     clearTimeout(this.timer);
-    this.isError = isError;
     this.showing = false;
     this.timer = setTimeout(() => {
       this.message = message;

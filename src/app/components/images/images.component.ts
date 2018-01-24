@@ -29,7 +29,8 @@ export class ImagesComponent implements AfterViewChecked {
     if (this.images && this.images.length > 0) {
       const masonry = new Masonry(this.grid.nativeElement, {
         itemSelector: '.grid-item',
-        columnWidth: 200
+        columnWidth: 200,
+        fitWidth: true
       });
     }
   }
@@ -40,7 +41,7 @@ export class ImagesComponent implements AfterViewChecked {
         this.images.splice(index, 1);
         this.toastService.showToast('Image deleted successfully.');
       },
-      error => this.toastService.showToast('Could not delete image.', true)
+      error => this.toastService.showToast('Could not delete image.')
     )
   }
 
@@ -61,8 +62,7 @@ export class ImagesComponent implements AfterViewChecked {
             liked: true
           });
         }
-        this.toastService.showToast('Liked successfully');
-      }, error => this.toastService.showToast('Could not like Image', true)
+      }, error => this.toastService.showToast('Could not like Image')
     )
   }
 

@@ -1,0 +1,22 @@
+@import "../../../variables";
+
+.default-toast-container {
+  max-width: 200px;
+  min-width: 200px;
+  position: fixed;
+  right: 50px;
+  bottom: 0;
+  opacity: 0;
+  transition: bottom 800ms, opacity 800ms;
+  background-color: $primaryTextColor;
+  &.toast-position {
+    bottom: 50px;
+    opacity: 1;
+  }
+  padding: 10px;
+  .toast-message {
+    font-size: 14px;
+    color: $darkPrimaryColor;
+    margin: 0;
+  }
+}

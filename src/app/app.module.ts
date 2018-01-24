@@ -17,6 +17,7 @@ import {UserImagesComponent} from './components/user-images/user-images.componen
 import {AddImageComponent} from './components/add-image/add-image.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {ImageWithFallbackComponent} from './components/image-with-fallback/image-with-fallback.component';
+import {AuthGuard} from "./services/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {ImageWithFallbackComponent} from './components/image-with-fallback/image
     AuthService,
     UserService,
     ImageService,
-    ToastService
+    ToastService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

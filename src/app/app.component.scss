@@ -1,0 +1,18 @@
+@import "../variables";
+
+.app {
+  .app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 16px 16px 16px;
+    padding: 16px;
+    border-bottom: 2px solid $primaryTextColor;
+    .app-title {
+      font-family: Righteous, sans-serif;
+      color: $primaryTextColor;
+      font-size: 26px;
+      margin-right: 16px;
+    }
+  }
+}
