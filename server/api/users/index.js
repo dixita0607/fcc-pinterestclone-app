@@ -15,7 +15,7 @@ router.get('/user', (req, res) => {
 });
 
 router.get('/:username/images', (req, res) => {
-  Image.find({author: req.params.username})
+  Image.find({author: req.params.username}, {}, {sort: {_id: -1}})
     .then(images => res.status(200)
       .json(images.map(image => sanitizeImage(image, req.user ? req.user.username : undefined))))
     .catch(error => res.status(500).json({}));

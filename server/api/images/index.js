@@ -3,7 +3,7 @@ const verify = require('../../middlewares/verify');
 const {Image, sanitizeImage} = require('../../models/image');
 
 router.get('/', (req, res) => {
-  Image.find({})
+  Image.find({}, {}, {sort: {_id: -1}})
     .then(images => res.status(200)
       .json(images.map(image => sanitizeImage(image, req.user ? req.user.username : undefined))))
     .catch(error => res.status(500).json({}));
